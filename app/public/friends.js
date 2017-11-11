@@ -27,18 +27,25 @@ $(document).ready(function() {
     $.get("/all").done(function(response) {
       var diff = Math.abs(totalScore - response[0].totalScore);
       var bestFriend = 0;
-      for (var i = 0; i < response.length; i++) {
+      for (var i = 0; i < response.length - 1; i++) {
         var newDiff = Math.abs(totalScore - response[i].totalScore);
         if (newDiff < diff) {
           diff = newDiff;
           bestFriend = i;
         }
       }
-      console.log(response[bestFriend]);
+      var match = response[bestFriend];
+      var pictureURL = match.photo;
+      var personImage = $("<img>");
+      personImage.attr("src", match.photo);
+
+      console.log(match);
+      $(".modal-title").text("You matched with " + match.name + "!");
+      $(".modal-body").prepend(personImage);
     });
+
     $.post("/api/new", newFriend).done(function(data) {
       console.log(data);
-      alert("Adding friend...");
     });
   });
 });
