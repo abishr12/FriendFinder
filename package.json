@@ -2,7 +2,7 @@
   "name": "friendfinder",
   "version": "1.0.0",
   "description": "find friends to match with!",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.16.2"
   },
@@ -14,10 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/abishr12/FriendFinder.git"
   },
-  "keywords": [
-    "express",
-    "node"
-  ],
+  "keywords": ["express", "node"],
   "author": "bishr",
   "license": "ISC",
   "bugs": {
